@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 
-package com.insightfullogic.java8.examples.chapter1;
+package com.rebeccasullivan.java8.models;
 
 import java.util.ArrayList;
 import java.util.Collections;
