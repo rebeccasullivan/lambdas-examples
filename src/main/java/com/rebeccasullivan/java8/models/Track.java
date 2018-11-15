@@ -1,13 +1,5 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package com.rebeccasullivan.java8.models;
 
-/**
- * @author richard
- */
 public final class Track {
     
     private final String name;
@@ -18,16 +10,10 @@ public final class Track {
         this.length = length;
     }
 
-    /**
-     * @return the name
-     */
     public String getName() {
         return name;
     }
 
-    /**
-     * @return the length of the track in milliseconds.
-     */
     public int getLength() {
         return length;
     }

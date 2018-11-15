@@ -1,8 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package com.rebeccasullivan.java8.models;
 
 import java.util.ArrayList;
@@ -13,11 +8,6 @@ import java.util.stream.Stream;
 
 import static java.util.stream.Collectors.toList;
 
-/**
- * Domain class for a popular music artist.
- * 
- * @author Richard Warburton
- */
 public final class Artist {
     
     private String name;
@@ -37,23 +27,14 @@ public final class Artist {
         this.nationality = nationality;
     }
 
-    /**
-     * @return the name
-     */
     public String getName() {
         return name;
     }
 
-    /**
-     * @return the members
-     */
     public Stream<Artist> getMembers() {
         return members.stream();
     }
 
-    /**
-     * @return the nationality
-     */
     public String getNationality() {
         return nationality;
     }

@@ -7,6 +7,7 @@ import java.util.function.BinaryOperator;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 import com.rebeccasullivan.java8.models.Artist;
@@ -37,27 +38,11 @@ public class Demo {
 		 *	So, before Java 8 was around, you'd have to use anonymous inner classes
 		 *	to achieve the same functionality.
 		 *
-		 *	A lambda expression is a method without a name that is used to pass around 
-		 *	behavior as if it were data.
-		 *
-		 *	A functional interface is an interface with a single abstract method that 
-		 *	is used as the type of a lambda expression.
-		 *
-		 *	There are several basic function shapes, including:
-		 *		- Function (unary function from T to R)
-		 *		- Consumer (unary function from T to void)
-		 *		- Predicate (unary function from T to boolean)
-		 *		- Supplier (nilary function to R)
-		 *
-		 *	Example: 
-		 *	- write 'Doubler' functional interface example, with Impl class
-		 *	- then use anonymous inner class
-		 *	- then show it using a functional interface
+		 *	**Show Example**
 		 */
-		
 		// Option 1: impl class
-		//	 Doubler doubler = new DoublerImpl();
-		//	 int result = doubler.doubleMe(5);
+		 Doubler doubler = new DoublerImpl();
+		 int result = doubler.doubleMe(5);
 		
 		// Option 2: anonymous class
 		Doubler doublerAnon = new Doubler() {
@@ -72,17 +57,17 @@ public class Demo {
 		Doubler doublerLambda = n -> n * 2;
 		doublerLambda.doubleMe(5);
 		
-		
-//		Doubler doubler = new Doubler() {
-//			@Override
-//			public int doubleMe(int n) {
-//				return n * 2;
-//			}
-//		};
-//		int result = doubler.doubleMe(4);
-//		
-//		Doubler doublerLambda = n -> n *2;
-//		int resultLambda = doublerLambda.doubleMe(4);
+		/*	A lambda expression is a method without a name that is used to pass around 
+		 *	behavior as if it were data.
+		 *
+		 *	GO TO SLIDE
+		 *
+		 *	There are several basic function shapes, including:
+		 *		- Function (unary function from T to R)
+		 *		- Consumer (unary function from T to void)
+		 *		- Predicate (unary function from T to boolean)
+		 *		- Supplier (nilary function to R)
+		 */
 		
 		/*
 		 *	As you'll see, a lot of stream operations take in one of these interfaces
@@ -142,10 +127,13 @@ public class Demo {
 		 * 	- You can use Collector.of( ) and supply a supplier, accumulator, and combiner, and it really 
 		 * 			starts to look like JavaScript with callback functions
 		 * 
+		 * 		// GO TO SLIDE
+		 * 
 		 * 	- Collectors supplies OOTB implementations that are common (show methods available) 
 		 */
 		Collectors.toList();
 		Collectors.toSet();
+		
 		
 		/* 
 		 * 	SPOTTING A LAMBDA EXPRESSION - different syntaxes:
@@ -195,15 +183,11 @@ public class Demo {
 		// MAP: supply a function that converts from one stream into (possibly) different-typed stream
 		// 	- avoid boilerplate of iterating through collection and performing mapping with external iteration
 		artists.stream()
-				.map(art -> art.getName().toUpperCase())
+				.map(artiste -> artiste.getName().toUpperCase())
 				.collect(Collectors.toList());
 		
-		// FLATMAP: convenience stream operation for accessing a nested stream
 		
-		
-		
-		
-		/* peek (mostly for debugging purposes)
+		/* Others: flatMap, peek (debugging purposes)
 		 * 
 		 * 
 		 ***** Terminal operations: *****
